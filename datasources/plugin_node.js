@@ -19,11 +19,25 @@
 			newMessageCallback;
 
 		function onNewMessageHandler(message) {
-			var objdata = JSON.parse(message);
+			var output = '';
+			/*
+			for (var property in message) {
+  			output += property + ': ' + message[property]+'; ';
+			}
+			console.info("message: '%s'", output);
+            */
+			try{
+				var objdata = JSON.parse(message);
+			}
+			catch(err){
+				var objdata = message;
+			}
+
 			if (typeof objdata == "object") {
 				updateCallback(objdata);
 			} else {
-				updateCallback(data);
+				//updateCallback(data);
+				console.info("expecting js object to pass to updateCallback");
 			}
 		}
 
@@ -121,7 +135,7 @@
 				type_name : "node_js",
 				display_name : "Node.js (Socket.io)",
 				description : "A real-time stream datasource from node.js servers using socket.io.",
-				external_scripts : [ "https://cdn.socket.io/socket.io-1.0.6.js" ],
+				external_scripts : [ "/lib/js/thirdparty/socket.io.min.js" ],
 				settings : [
 						{
 							name : "url",
