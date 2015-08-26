@@ -97,15 +97,15 @@
 			}
 			else if(currentSettings.size == "medium")
 			{
-				return 2;
+				return 4;
 			}
 			else if(currentSettings.size == "large")
 			{
-				return 4;
+				return 6;
 			}
 			else if(currentSettings.size == "x-large")
 			{
-				return 6;
+				return 12;
 			}
 		}
 
