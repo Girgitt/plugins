@@ -19,7 +19,7 @@
 	freeboard.loadWidgetPlugin({
 		// Same stuff here as with datasource plugin.
 		"type_name"   : "my_widget_plugin",
-		"display_name": "Widget Plugin Example",
+		"display_name": "html text widget",
         "description" : "Some sort of description <strong>with optional html!</strong>",
 		// **external_scripts** : Any external scripts that should be loaded before the plugin instance is created.
 		"external_scripts": [
@@ -40,12 +40,20 @@
 				"type"        : "option",
 				"options"     : [
 					{
-						"name" : "Regular",
-						"value": "regular"
+						"name" : "small",
+						"value": "small"
 					},
 					{
-						"name" : "Big",
-						"value": "big"
+						"name" : "medium",
+						"value": "medium"
+					},
+					{
+						"name" : "large",
+						"value": "large"
+					},
+					{
+						"name" : "x-large",
+						"value": "x-large"
 					}
 				]
 			}
@@ -83,13 +91,21 @@
 		// Blocks of different sizes may be supported in the future.
 		self.getHeight = function()
 		{
-			if(currentSettings.size == "big")
+			if(currentSettings.size == "small")
+			{
+				return 1;
+			}
+			else if(currentSettings.size == "medium")
 			{
 				return 2;
 			}
-			else
+			else if(currentSettings.size == "large")
 			{
-				return 1;
+				return 4;
+			}
+			else if(currentSettings.size == "x-large")
+			{
+				return 6;
 			}
 		}
 
